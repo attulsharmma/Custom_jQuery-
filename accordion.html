@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+  <title>Accordion</title>
+  <style>
+    .top {
+      background-color: #B03224;
+      color: #fff;
+      cursor: pointer;
+      font-family: arial;
+      font-size: 14px;
+      border-bottom: 1px solid #FFF;
+      padding: 15px 11px 23px 11px;
+      font-weight: bold;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .bottom {
+      color: #2D6AA3;
+      background: #e5e5e5;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .bottom p {
+      padding: 18px 5px;
+      margin: 0px;
+    }
+
+    .plusminus {
+      float: right;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      line-height: 200%;
+      border-radius: 50%;
+      color: #B03224;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Accordion Using Bootstrap 4 and jQuery 3.4.1 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+
+
+
+        <div class="top">Accordion Header 1<span class="plusminus">+</span></div>
+        <div class="bottom" style="display: none;">
+          <p>This is Accordion Body 1</p>
+        </div>
+        <div class="top">Accordion Header 1<span class="plusminus">+</span></div>
+        <div class="bottom" style="display: none;">
+        <p>This is Accordion Body 2</p>
+        </div>
+        <div class="top">Accordion Header 3<span class="plusminus">+</span></div>
+        <div class="bottom" style="display: none;">
+          <p>This is Accordion Body 3</p>
+        </div>
+
+        <div class="top">Accordion Header 4<span class="plusminus">+</span></div>
+        <div class="bottom" style="display: none;">
+          <p>This is Accordion Body 4</p>
+        </div>
+
+        <div class="top">Accordion Header 5<span
+            class="plusminus">+</span></div>
+        <div class="bottom" style="display: none;">
+          <p>This is Accordion Body 5</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      //toggle the component with class bottom
+      $(".top").click(function () {
+        if ($('.bottom').is(':visible')) {
+          $(".bottom").slideUp(300);
+          $(".plusminus").text('+');
+        }
+        if ($(this).next(".bottom").is(':visible')) {
+          $(this).css({
+            'border-bottom-left-radius': '5px',
+            'border-bottom-right-radius': '5px'
+          });
+          $(this).next(".bottom").slideUp(300);
+          $(this).children(".plusminus").text('+');
+        } else {
+          $(this).next(".bottom").slideDown(300);
+          $(this).css({
+            'border-bottom-left-radius': '0px',
+            'border-bottom-right-radius': '0px'
+          });
+          $(this).children(".plusminus").text('-');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
